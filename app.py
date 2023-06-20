@@ -85,7 +85,7 @@ def predict(df):
 with st.form("my_form"):
    st.write("🤖 Модель")
    year = st.number_input('Год выпуска',min_value=1980,max_value=2023)
-   saledate = st.date_input('Дата продаже')
+   saledate = st.date_input('Дата продажи')
    make = st.text_input('Марка')
    model = st.text_input('Издание автомобиля определенной марки')
    body = st.text_input('Тип кузова')
@@ -103,4 +103,4 @@ with st.form("my_form"):
    if submitted:
        df = process_data(year,saledate,make,model,body,state,condition,odometer,color,interior,seller,trim)
        res = predict(df)
-       st.write(res[0])
+       st.write(f"Цена: {res[0]}")
